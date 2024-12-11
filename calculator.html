@@ -3,11 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Simple Carbon Emission Calculator</title>
+    <link rel="stylesheet" href="/src/css/calculator.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h2><a href="/index.html">back</a></h2>
+        </header>
+        
+        <br>
+        <h1>Carbon Emission Calculator</h1>
+        <form id="calculator-form">
+            <label for="car-km">Car Travel (km):</label>
+            <input type="number" id="car-km" placeholder="Enter km traveled" min="0">
 
-    <!-- Simple Carbon emmsion calculator -->
-    
+            <label for="flight-miles">Air Travel (miles):</label>
+            <input type="number" id="flight-miles" placeholder="Enter miles flown" min="0">
+
+            <label for="electricity-kwh">Electricity Usage (kWh):</label>
+            <input type="number" id="electricity-kwh" placeholder="Enter kWh used" min="0">
+
+            <label for="gas-gallons">Gasoline Usage (gallons):</label>
+            <input type="number" id="gas-gallons" placeholder="Enter gallons used" min="0">
+
+            <label for="waste-lbs">Waste Generated (lbs):</label>
+            <input type="number" id="waste-lbs" placeholder="Enter pounds of waste" min="0">
+
+            <button type="submit">Calculate Emissions</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </div>
+    <script src="/src/js/calculator.js"></script>
 </body>
 </html>

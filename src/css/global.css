@@ -92,6 +92,7 @@ header nav ul li a {
 header nav ul li a:hover {
     background-color: var(--highlight-color);
     color: var(--background-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 
@@ -275,7 +276,7 @@ header nav ul li a:hover {
 
 .cta-button {
     display: inline-block;
-    background-color: var(--brown-light);
+    background-color: var(--brown-dark);
     color: #fff;
     margin-top: 10px;
     padding: 10px 20px;
@@ -287,7 +288,7 @@ header nav ul li a:hover {
 }
 
 .cta-button:hover {
-    background-color: var(--brown-dark);
+    background-color: #3a1d18;
 }
 
 
@@ -416,11 +417,15 @@ h2 {
 
 /* Projects Section */
 .projects {
+    max-width: 1000px;
+    margin: 0 auto ;
     background-color: var(--accent-color);
     border-radius: 20px;
 }
 
 .projects .project-item {
+   
+
     
     background-color: var(--secondary-color);
     color: #fff;
@@ -442,10 +447,22 @@ h2 {
 
 /* Fun Tools Section */
 .fun-tools {
+
+    max-width: 1000px;
+    margin: 0 auto;
     background-color: var(--tertiary-color);
 }
 
-.tool-item {
+.tool-item a {
+    color: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.tool-item{
     background-color: var(--secondary-color);
     color: white;
     margin: 20px;
@@ -455,6 +472,7 @@ h2 {
 }
 
 .fun-tools .tool-item:hover {
+    
     background-color: var(--highlight-color);
     transform: translateY(-5px);
 }
@@ -515,11 +533,17 @@ h2 {
 
 /* Join Us Section */
 .join-us {
+
+    margin-top: 20px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     background-color: var(--secondary-color);
     color: white;
 }
 
 .join-us .join-options {
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
