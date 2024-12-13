@@ -9,30 +9,46 @@ body {
     position: absolute; */
 
 
-
+    
     font-family: "Ubuntu", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
+    /* background-color: var(--background-color); */
+    /* gradient background  & show a little image on the top */
+
+    
+    /* background: var(--gradient-bg); */
+    
+    /* background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%); */
+    
+    background-image: linear-gradient(-45deg, #ffffff 0%, #aaa884 30%  ,  #ffffff 100%);
+    
+    
+    
+    
     color: var(--main-color);
     line-height: 1.6;
 }
 
+
 /* Colors */
 :root {
-    --main-color: #12372A;
-    --secondary-color: #436850;
-    --accent-color: #ADBC9F;
-    --background-color: #F8FAE5;
+    --gradient-bg: linear-gradient(50deg, rgb(1, 255, 107), rgb(23, 240, 70) , rgb(255, 255, 255));
+    --gradient-bg-header: linear-gradient(250deg, rgb(255, 250, 250), rgba(60, 255, 0, 0.219));
+    --main-color: #ffffff;
+    --secondary-color: #b4a074;
+    --accent-color: #dfd8bb;
+    /* gradient bg */
+    --background-color:  #F5F7F8;
     --brown-light: #B19470;
-    --brown-dark: #76453B;
+    --brown-dark:#31511E;
     --highlight-color: #43766C;
 }
 
 /* Header */
 header {
-    background-color: rgb(254, 255, 246);
-    height: 69px; ;
+    background : var(--gradient-bg-header);
+    height: 55px; ;
     color: #fff;
     padding: 1px 20px;
     display: flex;
@@ -59,7 +75,7 @@ header {
 }
 
 .logo img {
-
+    
     width: 69px;
     height: 69px;
 }
@@ -80,20 +96,38 @@ header nav ul {
 
 header nav ul li a {
     text-decoration: none;
-    color: #161616;
+    font-size: 95%;
     font-weight: 500;
-    padding: 8px 15px;
-    border-radius: 49px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    background-color: #DCE4C9;
-    border: 1px solid #080808;
+    color: #181818;
+    margin: 1mm;;
+    
 }
 
-header nav ul li a:hover {
-    background-color: var(--highlight-color);
-    color: var(--background-color);
-    transition: background-color 0.2s ease, color 0.2s ease;
+header nav ul li::after
+{
+    content: '';
+    width: 0%;
+    display: block;
+    background-color: rgb(0, 0, 0);
+    height: 2px;
+    transition: 0.5s;
 }
+header nav ul li:hover::after {
+    /* text underline */
+    /* text-decoration-line:  underline ;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 1mm; */
+
+/* 
+    color: rgb(0, 0, 0);
+    transition : color 100ms ease , text-decoration-line 300ms  ;
+
+    */
+    width: 95%;
+
+}
+
+
 
 
 /* TOP */
@@ -114,7 +148,7 @@ header nav ul li a:hover {
 .CardTop {
     flex: 1;
     max-width: 50%;
-    background-color: #FBFADA;
+    background-color: #ffffff;
     background-image: url("/src/image/leave.jpg");
     background-size: cover;
     border-radius: 10px;
@@ -242,7 +276,7 @@ header nav ul li a:hover {
         flex-direction: column;
         align-items: stretch;
     }
-
+    
     .CardTop, .slideshow-container {
         max-width: 100%;
     }
@@ -251,19 +285,28 @@ header nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    color: #080808;
+    
+    
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    
     text-align: center;
     padding: 80px 20px;
-    background-image: url('./src/image/hero-bg.jpg'); /* Replace with your image */
-    background-size: cover;
-    background-position: center;
+    
     position: relative;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    /* Gradient colour text  */
+    background: -webkit-linear-gradient(left  , #98da00,  #0092e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* add border to text*/
+
+    font-size: 5.5rem;
     margin: 0 0 20px;
 }
 
@@ -272,6 +315,13 @@ header nav ul li a:hover {
     margin: 0 0 30px;
     max-width: 600px;
     margin: auto;
+    color: black;
+}
+.message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: rgb(233, 208, 68);
 }
 
 .cta-button {
@@ -288,22 +338,24 @@ header nav ul li a:hover {
 }
 
 .cta-button:hover {
-    background-color: #3a1d18;
+    background-color: #f5f5f5;
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
 }
 
 
 /* Container for the Scrollable Section */
 .scrollable-container {
-    padding: 40px;
-    background-color: #659287;
+    padding: 100px;
+    background-color: #00000000;
     text-align: center;
     overflow: hidden; /* Hide overflow to maintain neat layout */
 }
 
-/* Heading Style */
+/* Heading Style */ 
 .scrollable-container h2 {
     font-size: 2.2rem;
-    color: #12372A;
+    color: #ffffff;
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -324,7 +376,7 @@ header nav ul li a:hover {
 .card {
     flex: 0 0 auto; /* Prevents cards from stretching */
     width: 300px; /* Fixed width for each card */
-    background-color: #ffffff;
+    background-color: #ebebeb;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -535,10 +587,7 @@ h2 {
 .join-us {
 
     margin-top: 20px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    background-color: var(--secondary-color);
-    color: white;
+
 }
 
 .join-us .join-options {
@@ -551,7 +600,7 @@ h2 {
 }
 
 .join-option {
-    background-color: var(--accent-color);
+    background-color: var(--secondary-color);
     color: white;
     padding: 20px;
     border-radius: 10px;
@@ -573,10 +622,10 @@ h2 {
 
 /* Footer */
 footer {
-    background-color: var(--brown-dark);
-    color: #fff;
+    background-image: linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0.616) 50% , rgba(0, 0, 0, 0) 100%);
     text-align: center;
     padding: 20px;
+    padding-top: 3cm;
 }
 
 footer p {
@@ -594,10 +643,6 @@ footer .social-links a {
     text-decoration: none;
     font-size: 1.2rem;
     transition: color 0.3s ease;
-}
-
-footer .social-links a:hover {
-    color: #fff;
 }
 
 /* Responsive Design */

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe or Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #89CFF0, #98FB98);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #2E8B57;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            background: #2E8B57;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #228B22;
+        }
+
+        .divider {
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: "or";
+            background: white;
+            padding: 0 10px;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #555;
+            font-size: 14px;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: green;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #777;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Subscribe to Our Newsletter</h1>
+        <p>Stay updated with our latest news and updates.</p>
+        <form id="newsletter-form">
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <p class="message" id="success-message"></p>
+
+        <div class="divider"></div>
+
+        <h2>Join Us or Donate</h2>
+        <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <button type="submit">Join Now</button>
+        </form>
+
+        <form action="#" method="POST">
+            <input type="number" name="amount" placeholder="Amount (USD)" required>
+            <button type="submit">Donate</button>
+        </form>
+        <p class="note">Every contribution makes a difference.</p>
+    </div>
+
+    <!-- Include EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("OuAYh8F-H0qjAayB7");  // Replace with your EmailJS User ID
+        })();
+
+        // Handle form submission
+        document.getElementById("newsletter-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+
+            // Send email via EmailJS
+            const templateParams = {
+                email: email,
+            };
+
+            emailjs.send("default_service", "template_6ambdah", templateParams) // Replace with your EmailJS Service ID and Template ID
+                .then(function(response) {
+                    // Success message
+                    document.getElementById("success-message").innerText = "Thank you for subscribing!";
+                    document.getElementById("email").value = ''; // Clear the input field
+                }, function(error) {
+                    // Error message
+                    document.getElementById("success-message").innerText = "Oops! Something went wrong.";
+                });
+        });
+    </script>
+
+</body>
+</html>
